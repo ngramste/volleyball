@@ -1,35 +1,57 @@
 <!DOCTYPE html>
 <html>
-    <header>        
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            h1 {
-                text-align: center;
-                padding-top: 300px;
-            }
-        </style>
-    </header>
-    <body>
-        <h1 id="time"></h1>
-    </body>
+<header>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      padding: 0px;
+      margin: 0px;
+    }
+    body {
+      background-color: #121212;
+      overflow: hidden;
+    }
+    div {
+      height: 100px;
+      line-height: 100px;
+      text-align: center;
+    }
+    span {
+      display: inline-block;
+      vertical-align: middle;
+      line-height: normal;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: large;
+    }
+  </style>
+</header>
+
+<body>
+  <div id="container"><span id="time"></span></div>
+</body>
+
 </html>
 
 <script>
-    var intervalId = setInterval(function() {
-        injury = new Date(2022, 8, 7, 18, 50, 0, 0);
-        const oneDay = 24 * 60 * 60 * 1000;
-        const oneHour = 60 * 60 * 1000; 
-        const oneMinute = 60 * 1000; 
-        const oneSecond = 1000; 
-        
-        delta = new Date(Math.abs(new Date() - injury));
+  var intervalId = setInterval(function () {
+    injury = new Date(2022, 8, 8, 18, 50, 0, 0);
+    const oneDay = 24 * 60 * 60 * 1000;
+    const oneHour = 60 * 60 * 1000;
+    const oneMinute = 60 * 1000;
+    const oneSecond = 1000;
 
-        days = Math.floor(delta / oneDay);
-        hours = Math.floor((delta - days * oneDay) / oneHour);
-        minutes = Math.floor((delta - days * oneDay - hours * oneHour) / oneMinute);
-        seconds = Math.floor((delta - days * oneDay - hours * oneHour - minutes * oneMinute) / oneSecond);
+    delta = new Date(Math.abs(new Date() - injury));
 
-        document.getElementById("time").innerHTML = "It has been<br>" + days + " days, " + hours + " hours, " + minutes + " minutes and " + seconds + " seconds<br>since Pound Town's last injury";
-    }, 1000);
+    days = Math.floor(delta / oneDay);
+    hours = Math.floor((delta - days * oneDay) / oneHour);
+    minutes = Math.floor((delta - days * oneDay - hours * oneHour) / oneMinute);
+    seconds = Math.floor((delta - days * oneDay - hours * oneHour - minutes * oneMinute) / oneSecond);
+
+    document.getElementById("container").style.lineHeight = window.innerHeight + "px";
+    document.getElementById("container").style.height = window.innerHeight + "px";
+
+    document.getElementById("time").innerHTML = "It has been<br>" + days + " days, " + hours + " hours, " + minutes + " minutes and " + seconds + " seconds<br>since Pound Town's last injury";
+  }, 50);
 </script>
