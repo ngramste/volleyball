@@ -17,7 +17,7 @@
 
 <script>
     var intervalId = setInterval(function() {
-        injury = new Date(2022, 8, 7, 19, 27, 0, 0);
+        injury = new Date(2022, 8, 7, 18, 50, 0, 0);
         const oneDay = 24 * 60 * 60 * 1000;
         const oneHour = 60 * 60 * 1000; 
         const oneMinute = 60 * 1000; 
@@ -30,6 +30,6 @@
         minutes = Math.floor((delta - days * oneDay - hours * oneHour) / oneMinute);
         seconds = Math.floor((delta - days * oneDay - hours * oneHour - minutes * oneMinute) / oneSecond);
 
-        document.getElementById("time").innerHTML = "It has been<br>" + days + " days, " + hours + " hours, " + minutes + " minutes and " + seconds + " seconds<br>since our last injury";
+        document.getElementById("time").innerHTML = "It has been<br>" + days + " days, " + hours + " hours, " + minutes + " minutes and " + seconds + " seconds<br>since Pound Town's last injury";
     }, 1000);
 </script>
